@@ -1,3 +1,5 @@
+import Side from "./Side"
+
 const User = () => {
 	return (
 	<div className="User-page">
@@ -10,7 +12,7 @@ const User = () => {
             <p>draft name</p>
             <button>View</button>
         </div>
-        <button>new</button>
+        <button><Link to="/draft">new draft</Link></button>
 	</div>
 	);
 }

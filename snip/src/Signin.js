@@ -8,7 +8,7 @@ const Signin = () =>{
 		<input/>
 		<h3>Password</h3>
 		<input/>
-		<button>Next</button>
+		<button><Link to="/user">Signin</Link></button>
 		<link></link>
 		</form>
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 import Navbar from './Navbar'
 const Home = () => {
@@ -9,8 +10,8 @@ const Home = () => {
 		<Navbar />
 		<p>Save your best ideas for later on snipstore</p>
 		<p>Create and store text, code snippets and draft notes. access them on any device</p>
-		<button onClick={handleClick_bt1}>Signin</button>
-		<p>Already have an account <a href="/">sign up for free</a></p>
+		<button><Link to="/sign-in">Signin</Link></button>
+		<p>Already have an account <Link to="/sign-up">sign up for free</Link></p>
 
 	</div>
 	);

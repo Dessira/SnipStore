@@ -10,7 +10,7 @@ const Signup = () =>{
 		<input/>
 		<h3>Password</h3>
 		<input/>
-		<button>Next</button>
+		<button><Link to="/sign-in">Signup</Link></button>
 		</form>
 	</div>
 	);

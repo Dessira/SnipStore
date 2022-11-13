@@ -1,3 +1,6 @@
+import Side from "./Side"
+
+
 const Draft = () => {
 	return (
 	<div className="Draft-page">
