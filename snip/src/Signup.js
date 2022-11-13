@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+
+
 const Signup = () =>{ 
 	return (
 	<div className="Signup-page">
@@ -15,4 +18,4 @@ const Signup = () =>{
 	</div>
 	);
 }
-export default Signin
+export default Signup
