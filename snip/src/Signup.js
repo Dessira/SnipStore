@@ -1,5 +1,27 @@
 //import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import Signin from './Signin'
+import Home from './Home'
 import { useState } from "react"
+
+const Redir = (val) =>{
+	if (val == true){
+		<Switch>
+  		<Redirect from="/sign-up" to="/sign-in" />
+  		<Route path="/sign-in">
+    		<Signin />
+  		</Route>
+		</Switch>
+
+	}
+	else {
+		<Switch>                                                   <Redirect from="/sign-up" to="/" />
+		<Route path="/">
+		<Home />
+                </Route>
+                </Switch>
+	}
+}
 const Signup = () =>{ 
 
 	const [name, setName] = useState("")
@@ -14,9 +36,12 @@ const Signup = () =>{
 			method: 'POST',
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(user)
-		}).then((response) => response)
+		}).then((response) => response.json())
    .then((data) => {
-      alert(data[0].err);
+      //alert(response)
+	if (JSON.stringify(data.err) == "this email has been used"){ Redir('false')}
+	   else{Redir('true')}
+
       // Handle data
    })
    .catch((err) => {

@@ -71,7 +71,7 @@ def sign_up():
         db.session.commit()
         return user_schema.jsonify(new_user)
     else:
-        return [{"err": "email has been used"}];
+        return {"err": "email has been used"};
 
 @app.route('/signin', methods=['POST'])
 def sign_in():
