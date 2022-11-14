@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from flask_cors import CORS
 import os
 from helper import signup_func, signin_func 
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'test.sqlite')
@@ -69,7 +71,7 @@ def sign_up():
         db.session.commit()
         return user_schema.jsonify(new_user)
     else:
-        return "email has been used"
+        return [{"err": "email has been used"}];
 
 @app.route('/signin', methods=['POST'])
 def sign_in():

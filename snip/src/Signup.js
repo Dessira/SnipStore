@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import { useState } from "react"
 const Signup = () =>{ 
 
@@ -10,13 +10,18 @@ const Signup = () =>{
 		e.preventDefault()
 		const user = {name, email, password}
 
-		fetch('http://localhost:5000/signup', {
+		fetch('http://127.0.0.1:5000/signup', {
 			method: 'POST',
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(user)
-		}).then(() => {
-			alert("new_user")
-		})
+		}).then((response) => response)
+   .then((data) => {
+      alert(data[0].err);
+      // Handle data
+   })
+   .catch((err) => {
+      alert(err.message);
+   });
 	}
 	return (
 	<div className="Signup-page">
