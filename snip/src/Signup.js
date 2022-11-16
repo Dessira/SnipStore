@@ -1,36 +1,21 @@
 //import { Link } from 'react-router-dom'
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
+/*import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import Signin from './Signin'
-import Home from './Home'
+import Home from './Home'*/
+import{ useHistory } from 'react-router-dom'
 import { useState } from "react"
 
-const Redir = (val) =>{
-	if (val == true){
-		<Switch>
-  		<Redirect from="/sign-up" to="/sign-in" />
-  		<Route path="/sign-in">
-    		<Signin />
-  		</Route>
-		</Switch>
 
-	}
-	else {
-		<Switch>                                                   <Redirect from="/sign-up" to="/" />
-		<Route path="/">
-		<Home />
-                </Route>
-                </Switch>
-	}
-}
 const Signup = () =>{ 
 
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	const history = useHistory()
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		const user = {name, email, password}
+	const user = {name, email, password}
 
 		fetch('http://127.0.0.1:5000/signup', {
 			method: 'POST',
@@ -39,8 +24,9 @@ const Signup = () =>{
 		}).then((response) => response.json())
    .then((data) => {
       //alert(response)
-	if (JSON.stringify(data.err) == "this email has been used"){ Redir('false')}
-	   else{Redir('true')}
+	let id = JSON.stringify(data.id)
+	if (id == "-1"){ document.getElementById('err').style.display = 'inline'}
+	   else{history.push(`/user/${id}`)}
 
       // Handle data
    })
@@ -51,6 +37,7 @@ const Signup = () =>{
 	return (
 	<div className="Signup-page">
 		<h1>SS Snipstore</h1>
+		<span id="err">email has been used</span>
 		<h2>Create an account</h2>
 		<form onSubmit={handleSubmit}>
 		<h3>Name</h3>
