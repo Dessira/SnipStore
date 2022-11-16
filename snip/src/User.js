@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import Side from "./Side"
 import React from 'react'
 import { useParams } from "react-router-dom"
-//import { useEffect } from "react"
 import { useState } from "react"
 import {useEffect} from 'react'
 
@@ -12,8 +11,8 @@ import {useEffect} from 'react'
 const User = () => {
 	let params = useParams()
 	const use_id = params.id
-	const [drafts, setDrafts] = useState({})
-		alert('hello')
+	const [drafts, setDrafts] = useState(null)
+		//alert('hello')
 	const fetchData = () => {
 	   fetch(`http://127.0.0.1:5000/user/draft/${use_id}`)
 		.then(response => response.json())
@@ -26,16 +25,33 @@ const User = () => {
 		alert('hey')
 		fetchData();
 	}, []);
-	//alert(drafts + "done")
-	return (
-		<div className="User-page">
-		<Side />
-		<div>
-		{drafts && drafts.map((draft) => (<h2>{ draft.name}</h2>))}
-		<h2>Chicken</h2>
-        	<button><Link to="/draft">new draft</Link></button>
-		</div>
-	</div>
-	);
+	console.log(drafts);
+		return (
+		  <div>
+			{(() => {
+			  if (drafts) {
+				return (
+					<div className="User-page">
+					<Side />
+					<div>
+					<h2>Chicken</h2>{
+					drafts.map( (draft) => (
+						<div key={ draft.draft_id }>
+							<h3>{ draft.draft_name }</h3>
+							<p>{draft.draft_txt.substring(0, 10)}</p>
+							<button>view</button>
+						</div>
+					))
+			}
+						<button><Link to="/draft">new draft</Link></button>
+					</div>
+			
+				</div>
+				)
+			  } 
+			})()}
+		  </div>
+		)
+	
 }
 export default User
