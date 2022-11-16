@@ -12,7 +12,7 @@ const User = () => {
 	let params = useParams()
 	const use_id = params.id
 	const [drafts, setDrafts] = useState(null)
-		//alert('hello')
+	const [url, setUrl] = useState("")
 	const fetchData = () => {
 	   fetch(`http://127.0.0.1:5000/user/draft/${use_id}`)
 		.then(response => response.json())
@@ -24,8 +24,8 @@ const User = () => {
 	useEffect(() => {
 		alert('hey')
 		fetchData();
+		setUrl("/draft/" + use_id)
 	}, []);
-	console.log(drafts);
 		return (
 		  <div>
 			{(() => {
@@ -39,11 +39,11 @@ const User = () => {
 						<div key={ draft.draft_id }>
 							<h3>{ draft.draft_name }</h3>
 							<p>{draft.draft_txt.substring(0, 10)}</p>
-							<button>view</button>
+							<button id="view_draft">view</button>
 						</div>
 					))
 			}
-						<button><Link to="/draft">new draft</Link></button>
+<button><Link to={url}>new draft</Link></button>
 					</div>
 			
 				</div>

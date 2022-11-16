@@ -86,7 +86,7 @@ def sign_in():
             """url = url_for('user_page', id = user.id)
             return redirect(url, code=303)"""
             return user_page(user.id)
-    return "user not found"
+    return {"id": -1}
 
 @app.route('/user', methods=["GET"])
 def total_users():
