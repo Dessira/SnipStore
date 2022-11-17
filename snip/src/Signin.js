@@ -1,6 +1,7 @@
 //import { Link } from 'react-router-dom'
 import{ useHistory } from 'react-router-dom'
 import { useState } from "react"
+import { ReactComponent as Logo } from "./Vector.svg"
 
 const Signin = () => {
         const [email, setEmail] = useState("")
@@ -27,17 +28,19 @@ const Signin = () => {
 								   }
 	return (
 	<div className="Signin-page">
-		<h1>SS Snipstore</h1>
-		<h2>Sign into your account</h2>
+      <div className='sign-form'>
+		<h1 className="top-elem"><Logo />Snipstore</h1>
+		<h2 className="top-elem">Sign into your account</h2>
 		<span id="signin_err">User not found please signup</span>
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className="form-input">
 		<h3>Email</h3>
-		<input required className="signup" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+		<input required className="inputs" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 		<h3>Password</h3>
-		<input required className="signup" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-		<button>signin</button>
+		<input required className="inputs" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+		<button className='btn input'>Next</button>
 		</form>
-
+      <p>Sign up instead</p>
+      </div>
 	</div>
 	);
 }
