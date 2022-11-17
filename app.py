@@ -49,6 +49,8 @@ class DraftSchema(ma.Schema):
     """"""""
     class Meta:
         fields = ('draft_id', 'user_id', 'draft_txt', "draft_name")
+        include_relationships = True
+        load_instance = True
 
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
@@ -121,8 +123,8 @@ def update_user(id):
 def delete_user(id):
     """"""
     user = User.query.get(id)
+    Draft.query.filter_by(user_id=id).delete()
     db.session.delete(user)
-
     db.session.commit()
     return user_schema.jsonify(user)
 

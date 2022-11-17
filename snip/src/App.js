@@ -5,6 +5,8 @@ import Signin from './Signin'
 import Signup from './Signup'
 import Home from './Home'
 import User from './User'
+import Setting from './Setting'
+import Overview from './Overview'
 
 function App() {
   return (
@@ -27,6 +29,12 @@ function App() {
             <Route exact path="/draft/:id">
               <Draft/>
             </Route>
+	  <Route exact path="/setting/:id">
+	  <Setting />
+	  </Route>
+	  <Route exact path="/overview/:id">
+	  <Overview />
+	  </Route>
           </Switch>
       </div>
     </div>

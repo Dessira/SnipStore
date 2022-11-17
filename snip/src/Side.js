@@ -1,19 +1,21 @@
-import { Link, useParams, useHistory } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const Side = () => {
 	let params = useParams()
     const use_id = params.id
-	const url = "/user/" + use_id
+	const D_url = "/user/" + use_id
+	const S_url = "/setting/" + use_id
+	const O_url = "/overview/" + use_id
 	return (
 	<div className="Side-page">
-        <Link to={url}><div>
+        <Link to={D_url}><div>
 			<p>Drafts</p>
 		</div></Link>
-        <Link to={url}><div>
-			<p>Drafts</p>
+        <Link to={S_url}><div>
+			<p>Settings</p>
 		</div></Link>
-		<Link to={url}><div>
-			<p>Drafts</p>
+		<Link to={O_url}><div>
+			<p>Overview</p>
 		</div></Link>
 	</div>
 	);
