@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import { useState } from "react"
 import {useEffect} from 'react'
 import { useHistory } from "react-router-dom";
+import UserNav from './UserNav'
 
 // once page is rendered once do this and store it
 //const { id } = useParams();
@@ -42,19 +43,20 @@ const User = props => {
 			  if (drafts) {
 				return (
 					<div className="User-page">
+						<UserNav />
+						<div className="user-page-main">
 					<Side />
-					<div>
-					<h2>Chicken</h2>{
+					<div>{
 					drafts.map( (draft) => (
 						<div key={ draft.draft_id } id="user_draft">
 							<h3>{ draft.draft_name }</h3>
-							<p>{draft.draft_txt.substring(0, 10)}</p>
+							<p>{draft.draft_txt.substring(0, 30)}</p>
 							<button onClick = {() => { changePage(url, draft.draft_txt, draft.draft_name, draft.draft_id);} }>view</button>
 						</div>
 					))}
 				<button onClick = {() => { changePage(url, "", "", "");} }>new draft</button>
 					</div>
-			
+			</div>
 				</div>
 				)} 
 			})()}

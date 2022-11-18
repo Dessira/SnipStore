@@ -8,15 +8,15 @@ const Side = () => {
 	const O_url = "/overview/" + use_id
 	return (
 	<div className="Side-page">
-        <Link to={D_url}><div>
+        <div className='sidebar'><Link to={D_url}>
 			<p>Drafts</p>
-		</div></Link>
-        <Link to={S_url}><div>
+		</Link></div>
+        <div className='sidebar'><Link to={S_url}>
 			<p>Settings</p>
-		</div></Link>
-		<Link to={O_url}><div>
+		</Link></div>
+		<div className='sidebar'><Link to={O_url}>
 			<p>Overview</p>
-		</div></Link>
+		</Link></div>
 	</div>
 	);
 }
