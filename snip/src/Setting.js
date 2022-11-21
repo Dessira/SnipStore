@@ -5,7 +5,7 @@ import Home from './Home'*/
 import { useEffect, useState } from "react"
 import Side from './Side'
 import { useParams, useHistory } from "react-router-dom"
-
+import UserNav from './UserNav'
 
 const Setting = () =>{ 
 
@@ -60,6 +60,7 @@ const Setting = () =>{
 	
 	return (
 	<div className="Settings-page">
+		<UserNav />
 		<Side />
 		<h1>SS Snipstore</h1>
 		<span id="set-err">An error occured try again</span>

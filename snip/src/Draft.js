@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { useLocation } from "react-router-dom";
 import {useEffect} from 'react'
+import UserNav from './UserNav'
 
 const Draft = props => {
 		const location = useLocation();
@@ -71,6 +72,7 @@ const Draft = props => {
 	console.log(old_id)
 	return (
 	<div className="Draft-page">
+		<UserNav />
         <Side />
 	<span id="draft_err">Error saving draft please refresh</span>
         <form onSubmit={handleSubmit}>
