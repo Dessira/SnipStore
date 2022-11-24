@@ -2,6 +2,7 @@
 import{ useHistory } from 'react-router-dom'
 import { useState } from "react"
 import { ReactComponent as Logo } from "./Vector.svg"
+import PropTypes from "prop-types"
 
 const Signin = () => {
         const [email, setEmail] = useState("")
@@ -18,7 +19,11 @@ const Signin = () => {
       //alert(response)
         let id = JSON.stringify(data.id)
         if (id == "-1"){ document.getElementById('signin_err').style.display = 'inline'}
-           else{history.push(`/user/${id}`)}
+           else{
+            //setToken(true)
+            console.log(JSON.stringify(data.token))
+            history.push(`/user/${id}`)
+         }
 
       // Handle data
    })
@@ -26,6 +31,7 @@ const Signin = () => {
       alert(err.message);
    });
 								   }
+      
 	return (
 	<div className="Signin-page">
       <div className='sign-form'>
@@ -43,5 +49,8 @@ const Signin = () => {
       </div>
 	</div>
 	);
+  /* Signin.propTypes = {
+      setToken: PropTypes.func.isRequired
+   }*/
 }
 export default Signin

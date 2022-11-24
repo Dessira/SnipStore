@@ -61,7 +61,9 @@ const Setting = () =>{
 	return (
 	<div className="Settings-page">
 		<UserNav />
+		<div className="user-page-main">
 		<Side />
+		<div className="user-left">
 		<h1>SS Snipstore</h1>
 		<span id="set-err">An error occured try again</span>
 		<h2>Settings</h2>
@@ -75,6 +77,8 @@ const Setting = () =>{
 		<button>Save</button>
 		</form>
 	<button className="delete-btn" onClick={deleteUser}>delete</button>
+	</div>
+	</div>
 	</div>
 	);
 }

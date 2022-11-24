@@ -73,15 +73,19 @@ const Draft = props => {
 	return (
 	<div className="Draft-page">
 		<UserNav />
+		<div className="user-page-main">
         <Side />
+		<div className="user-left" >
 	<span id="draft_err">Error saving draft please refresh</span>
         <form onSubmit={handleSubmit}>
 			<div id="div_field">{draft_txt}</div>
-	   <input required id="input_field" type="text" value={draft_name} onChange={(e) => setDname(e.target.value)}/>
-           <input required className="draft_item" type="text" value={draft_txt} onChange={(e) => setTxt(e.target.value)}/>
-            <button className="save-btn">save</button>
+	   <input required className="inputs" type="text" value={draft_name} onChange={(e) => setDname(e.target.value)}/>
+           <input required className="inputs" type="text" value={draft_txt} onChange={(e) => setTxt(e.target.value)}/>
+            <button className="btn inputs">save</button>
         </form>
 		<button className="delete-btn" onClick={deleteDraft}>delete</button>
+		</div>
+		</div>
 	</div>
 	);
 }

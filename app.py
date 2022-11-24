@@ -73,7 +73,7 @@ def sign_up():
         db.session.commit()
         return user_schema.jsonify(new_user)
     else:
-        return {"id": -1};
+        return {"id": -1}
 
 @app.route('/signin', methods=['POST'])
 def sign_in():
@@ -101,7 +101,8 @@ def total_users():
 def user_page(id):
     """"""
     user = User.query.get(id)
-    return user_schema.jsonify(user)
+    #return user_schema.jsonify(user)
+    return {"id": user.id, "token": "boom"}
 
 @app.route('/user/<id>', methods=["PUT"])
 def update_user(id):
