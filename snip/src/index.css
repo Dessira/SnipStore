@@ -116,6 +116,7 @@
 	border-radius: 8.10505px;
 	width: 348px;
 	height: 40px;
+	padding-left: 10px;
 }
 .sign-form {
 	display: flex;
@@ -233,7 +234,7 @@ flex-direction: column
 	width: 700px;
 	height: 60vh;
 	border-radius: 4px;
-	padding: 20px;
+	padding: 10px;
 }
 .delete-btn{
 	position: absolute;
@@ -244,5 +245,20 @@ flex-direction: column
 	left: 80%;
 	color: white;
 	border-radius: 8px;
+	border: 1.35084px solid #161B33;
+}
+.overview{
+	width: 80%;
+	height: fit-content;
+}
+.setting-form{
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	width: 348px;
+}
+#set-btn{
+	width: 80px;
+	align-self: flex-end;
 }
 

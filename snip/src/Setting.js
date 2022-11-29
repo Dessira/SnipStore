@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import Side from './Side'
 import { useParams, useHistory } from "react-router-dom"
 import UserNav from './UserNav'
+import { ReactComponent as Logo } from "./Vector.svg"
 
 const Setting = () =>{ 
 
@@ -65,17 +66,17 @@ const Setting = () =>{
 		<Side />
 		<div className="user-left">
 		<div className="setting">
-		<h1>SS Snipstore</h1>
+		<h1><Logo /> Snipstore</h1>
 		<span id="set-err">An error occured try again</span>
 		<h2>Settings</h2>
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className="setting-form">
 		<h3>Update Name</h3>
 		<input required className="inputs" type="text" value={name} onChange={(e) => setName(e.target.value)}/>
 		<h3>Update Email</h3>
 		<input required className="inputs" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 		<h3>Update Password</h3>
 		<input required className="inputs" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-		<button className="btn">Save</button>
+		<button className="btn" id="set-btn">Save</button>
 		</form>
 		</div>
 	<button className="delete-btn" onClick={deleteUser}>delete</button>
