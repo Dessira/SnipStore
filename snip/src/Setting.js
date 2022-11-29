@@ -64,6 +64,7 @@ const Setting = () =>{
 		<div className="user-page-main">
 		<Side />
 		<div className="user-left">
+		<div className="setting">
 		<h1>SS Snipstore</h1>
 		<span id="set-err">An error occured try again</span>
 		<h2>Settings</h2>
@@ -74,8 +75,9 @@ const Setting = () =>{
 		<input required className="inputs" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 		<h3>Update Password</h3>
 		<input required className="inputs" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-		<button>Save</button>
+		<button className="btn">Save</button>
 		</form>
+		</div>
 	<button className="delete-btn" onClick={deleteUser}>delete</button>
 	</div>
 	</div>

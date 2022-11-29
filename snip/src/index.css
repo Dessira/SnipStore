@@ -225,3 +225,24 @@
 	top: 550px;
 	left: 85%;
 }
+.draft-input{
+display:flex ;
+flex-direction: column
+}
+.text-inputs{
+	width: 700px;
+	height: 60vh;
+	border-radius: 4px;
+	padding: 20px;
+}
+.delete-btn{
+	position: absolute;
+	width: 80px;
+	background-color: maroon;
+	height: 40px;
+	top: 80px;
+	left: 80%;
+	color: white;
+	border-radius: 8px;
+}
+

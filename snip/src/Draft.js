@@ -57,7 +57,7 @@ const Draft = props => {
 			})
 			.catch((err) => {
 			alert(err.message);
-			 });
+			 })
 			}
 	}
 	function deleteDraft() {
@@ -77,10 +77,9 @@ const Draft = props => {
         <Side />
 		<div className="user-left" >
 	<span id="draft_err">Error saving draft please refresh</span>
-        <form onSubmit={handleSubmit}>
-			<div id="div_field">{draft_txt}</div>
+        <form onSubmit={handleSubmit} className="draft-input">
 	   <input required className="inputs" type="text" value={draft_name} onChange={(e) => setDname(e.target.value)}/>
-           <input required className="inputs" type="text" value={draft_txt} onChange={(e) => setTxt(e.target.value)}/>
+           <textarea required className="text-inputs" type="text" value={draft_txt} onChange={(e) => setTxt(e.target.value)}/>
             <button className="btn inputs">save</button>
         </form>
 		<button className="delete-btn" onClick={deleteDraft}>delete</button>
