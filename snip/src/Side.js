@@ -5,7 +5,7 @@ const Side = () => {
     const use_id = params.id
 	const D_url = "/user/" + use_id
 	const S_url = "/setting/" + use_id
-	const O_url = "/overview/" + use_id
+	const O_url = "/help/" + use_id
 	return (
 	<div className="Side-page">
 		<div>
@@ -19,7 +19,7 @@ const Side = () => {
 		</div>
 		<div className='sidebar'>
 		<i class="fa-regular fa-circle-question"></i>
-			<p><Link to={O_url}>Overview</Link></p>
+			<p><Link to={O_url}>Help</Link></p>
 		</div>
 		</div>
 	</div>

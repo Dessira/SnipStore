@@ -7,6 +7,7 @@ import Home from './Home'
 import User from './User'
 import Setting from './Setting'
 import Overview from './Overview'
+import Help from './Help'
 //import { useEffect, useState } from "react"
 //import GuardedRoute from "./Guarded"
 
@@ -20,6 +21,9 @@ function App() {
 	        <Switch>
             <Route exact path="/">
               <Home/>
+            </Route>
+	          <Route exact path="/help/:id">
+	          <Help />
             </Route>
             <Route exact path="/sign-up">
               <Signup/>
@@ -36,7 +40,7 @@ function App() {
 	  <Route exact path="/setting/:id">
 	  <Setting />
 	  </Route>
-	  <Route exact path="/overview/:id">
+	  <Route exact path="/overview">
 	  <Overview />
 	  </Route>
           </Switch>

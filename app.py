@@ -1,3 +1,5 @@
+"""This Module contains the backend structure of the project"""
+
 from flask import Flask, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
@@ -42,11 +44,11 @@ class Draft(db.Model):
         self.user_id = user_id
 
 class UserSchema(ma.Schema):
-    """"""""
+    """Class That handles serialization of User"""
     class Meta:
         fields = ('id', 'name', 'email', 'password')
 class DraftSchema(ma.Schema):
-    """"""""
+    """Class that handles serialization of Drafts"""
     class Meta:
         fields = ('draft_id', 'user_id', 'draft_txt', "draft_name")
         include_relationships = True
@@ -61,7 +63,7 @@ drafts_schema = DraftSchema(many=True)
 #create user
 @app.route('/signup', methods=["POST"])
 def sign_up():
-    """"""""
+    """Signup route"""
     name = request.json['name']
     email = request.json['email']
     password = request.json['password']
@@ -77,7 +79,7 @@ def sign_up():
 
 @app.route('/signin', methods=['POST'])
 def sign_in():
-    """"""
+    """Sigin route"""
     email = request.json['email']
     password = request.json['password']
 
@@ -92,21 +94,21 @@ def sign_in():
 
 @app.route('/user', methods=["GET"])
 def total_users():
-    """"""""
+    """Returns total users in the database"""
     all_users = User.query.all()
     total = users_schema.dump(all_users)
     return jsonify(total)
 
 @app.route('/user/<id>', methods=["GET", "POST"])
 def user_page(id):
-    """"""
+    """handles user data retrival"""
     user = User.query.get(id)
     #return user_schema.jsonify(user)
-    return {"id": user.id, "token": "boom"}
+    return user_schema.jsonify(user)
 
 @app.route('/user/<id>', methods=["PUT"])
 def update_user(id):
-    """"""
+    """Performs user update"""
     user = User.query.get(id)
 
     name = request.json['name']
@@ -122,7 +124,7 @@ def update_user(id):
 
 @app.route('/user/<id>', methods=["DELETE"])
 def delete_user(id):
-    """"""
+    """Delete user from database"""
     user = User.query.get(id)
     Draft.query.filter_by(user_id=id).delete()
     db.session.delete(user)
@@ -131,7 +133,7 @@ def delete_user(id):
 
 @app.route('/user/draft/<id>', methods=["POST"])
 def create_draft(id):
-    """"""
+    """Creates a new draft for user"""
     draft_name = request.json['draft_name']
     draft_txt = request.json['draft_txt']
     user_id = id
@@ -144,20 +146,20 @@ def create_draft(id):
 
 @app.route('/user/draft/<id>', methods=["GET"])
 def all_user_drafts(id):
-    """"""
+    """Retrives all data to be displayed"""
     all_drafts = Draft.query.filter_by(user_id=id).all()
     total = drafts_schema.dump(all_drafts)
     return jsonify(total)
 
 @app.route('/user/draft/<id>/<d_id>', methods=["GET"])
 def one_draft(id, d_id):
-    """"""
+    """Retrieves one draft for user viewing"""
     draft = Draft.query.filter_by(user_id=id).filter_by(draft_id=d_id).first()
     return draft_schema.jsonify(draft)
 
 @app.route('/user/draft/<id>/<d_id>', methods=["PUT"])
 def update(id, d_id):
-    """"""
+    """Updates drafts in database"""
     draft = Draft.query.filter_by(user_id=id).filter_by(draft_id=d_id).first()
     draft_name = request.json['draft_name']
     draft_txt = request.json['draft_txt']
@@ -170,7 +172,7 @@ def update(id, d_id):
 
 @app.route('/user/draft/<id>/<d_id>', methods=["DELETE"])
 def delete_draft(id, d_id):
-    """"""
+    """Delete draft"""
     draft = Draft.query.filter_by(user_id=id).filter_by(draft_id=d_id).first()
     db.session.delete(draft)
     db.session.commit()
