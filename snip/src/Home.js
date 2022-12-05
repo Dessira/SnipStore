@@ -3,9 +3,6 @@ import { ReactComponent as Design } from "./Idea.svg"
 
 import Navbar from './Navbar'
 const Home = () => {
-	const handleClick_bt1 = () => {
-		alert("hello")
-	}
 	return (
 	<div className="Home-page">
 		<Navbar />

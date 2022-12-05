@@ -7,7 +7,7 @@
 }
 .nav-container{
 	width: 100%;
-	height: 50px;
+	height: 60px;
 	background-color:  gray;
 }
 .navbar {
@@ -261,4 +261,32 @@ flex-direction: column
 	width: 80px;
 	align-self: flex-end;
 }
+.overview-side{
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.overview-right{
+	width: 50%;
+	color:#161B33;
+	font-size: larger;
+}
+.architecture{
+	margin-top: 6px;
 
+}
+.architecture > li{
+	font-weight: 500;
+	color: aqua;
+	list-style:  none;
+}
+.framework > li{
+	margin-left: 40px;
+	list-style:  none;
+	margin-top: 4px;
+}
+.land-left{
+	margin-left: 50px;
+	margin-top: 50px;
+}

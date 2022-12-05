@@ -4,21 +4,22 @@ import Navbar from './Navbar'
 const Overview = () => {
 
 	return (
-	<div className="Home-page">
+	<div className="Overview-page">
 		<Navbar />
-        <div>
+        <div className="overview-side">
+            <div className="overview-right">
             <h1>Welcome to snipstore</h1>
             <p>Snipstore is a store for your drafts, code snippets and important notes. Using snipstore you will be able to create store and edit your drafts. its simple layout makes it easy to use. it was created as my foundations portfolio project. I choose this project to solve one of the problems affecting the students in my school. They often code on multiple devces myself included. sometimes it can be tasking to shuffle information found or needed across devices. Snipstore fixes that enabling you to access your  notes via any device.</p>
-            <ul>
+            <ul className="architecture">
                 <li>Front-end:
-                    <ul>
+                    <ul className="framework">
                        <li>React</li>
                        <li>CSS</li>
                        <li>HTML</li>
                     </ul>
                 </li>
                 <li>Backend:
-                    <ul>
+                    <ul className="framework">
                         <li>Flask</li>
                         <li>SQLITE DATABASE</li>
                         <li>PYTHON</li>
@@ -32,7 +33,8 @@ const Overview = () => {
                 <iframe></iframe>
             </p>
             <p>Thanks for Visiting</p>
-            <Design />
+            </div>
+            <Design className="land-left"/>
         </div>
 	</div>
 	);

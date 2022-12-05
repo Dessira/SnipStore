@@ -3,6 +3,7 @@ import{ useHistory } from 'react-router-dom'
 import { useState } from "react"
 import { ReactComponent as Logo } from "./Vector.svg"
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
 
 const Signin = () => {
         const [email, setEmail] = useState("")
@@ -22,7 +23,7 @@ const Signin = () => {
            else{
             //setToken(true)
             console.log(JSON.stringify(data.token))
-            history.push(`/user/${id}`)
+            history.push(`/dashboard/${id}`)
          }
 
       // Handle data
@@ -45,7 +46,7 @@ const Signin = () => {
 		<input required className="inputs" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 		<button className='btn input'>Next</button>
 		</form>
-      <p>Sign up instead</p>
+      <Link to="/sign-up"><p>Sign up instead</p></Link>
       </div>
 	</div>
 	);

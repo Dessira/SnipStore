@@ -43,7 +43,7 @@ const Setting = () =>{
       //alert(response)
 	let id = JSON.stringify(data.id)
 	if (id == "-1"){ document.getElementById('set-err').style.display = 'inline'}
-	   else{history.push('/')}
+	   else{history.push(`/dashboard/${id}`)}
 
       // Handle data
    })

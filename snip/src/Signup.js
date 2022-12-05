@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom"
 import { useState } from "react"
 import { ReactComponent as Logo } from "./Vector.svg"
+import { Link } from "react-router-dom"
 
 const Signup = () => {
 	const [name, setName] = useState("")
@@ -22,7 +23,7 @@ const Signup = () => {
 		.then((data) => {
 			let id = JSON.stringify(data.id)
 			if (id == "-1"){ document.getElementById('err').style.display = "inline" }
-			else{ history.push(`/user/${id}`)}
+			else{ history.push(`/dashboard/${id}`)}
 		})
 		.catch((err) => {
 			alert(err.message);
@@ -50,7 +51,7 @@ const Signup = () => {
 		<input required className="inputs" type="password" value={conpassword} onChange={(e) => setConpassword(e.target.value)} />
 		<button className="btn inputs">Next</button>
 		</form>
-		<p>Sign in instead</p>
+		<Link to="/sign-in"><p>Sign in instead</p></Link>
 		</div>
 		</div>
 	)
