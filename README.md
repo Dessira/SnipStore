@@ -6,3 +6,12 @@
 </ul>
 </p>
 <h2>Architecture</h2>
+<a href="https://vast-eyrie-76822.herokuapp.com/overview">Overview</a>
+<h2>Usage</h2>
+<a href="https://vast-eyrie-76822.herokuapp.com/overview">SnipStore</a>
+<h2>Contributors</h2>
+<a href="https://github.com/Dessira">Desire Barine</a>
+<h2>Related projects</h2>
+<p>None</p>
+<h2>Licensing</h2>
+<p>None</p>
